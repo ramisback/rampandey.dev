@@ -8,13 +8,13 @@ build:
 	go build -o tmp/$(OUTPUT_BINARY) $(MAIN_ENTRY)
 	@echo "===> Build completed."
 
-dev:
+start: build
+	@echo "===> Starting binary..."
+	./tmp/$(OUTPUT_BINARY)
+
+run:
 	@echo "===> Starting the Go application..."
 	go run $(MAIN_ENTRY)
-
-start: build
-	@echo "===> Starting the Go application..."
-	./tmp/$(OUTPUT_BINARY)
 
 tidy:
 	@echo "===> Formatting Go source code..."
